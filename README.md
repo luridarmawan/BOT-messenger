@@ -1,2 +1,6 @@
 # BOT-messenger
-Template Messenger BOT
+Template Messenger BOT.
+
+- Facebook Messenger
+- Telegram
+

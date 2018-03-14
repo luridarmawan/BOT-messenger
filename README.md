@@ -130,7 +130,7 @@ User->Messenger: Send message
 Messenger->BOT: Send message to Bot 
 Note right of BOT: Your Process 
 BOT-->Messenger: Send Reply to Messenger 
-Messenger->User:Send Reply to User
+Messenger-->User:Send Reply to User
 ```
 ![Sequence Diagram](docs/sequence-diagram.png "Sequence Diagram")
 

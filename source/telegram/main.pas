@@ -24,7 +24,7 @@ type
 
 implementation
 
-uses common;
+uses json_lib, common;
 
 constructor TMainModule.CreateNew(AOwner: TComponent; CreateMode: integer);
 begin
@@ -48,7 +48,6 @@ end;
 // GET Method Handler
 procedure TMainModule.Get;
 begin
-  //---
   Response.Content := '{}';
 end;
 
@@ -66,7 +65,8 @@ begin
 
   replyText := 'ECHO: ' + messageText;
 
-  die( replyText);
+
+
 
   //-- send response
   TELEGRAM.SendMessage(TELEGRAM.ChatID, replyText);

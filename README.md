@@ -4,7 +4,7 @@
 
 ## What is it?
 
-Code ini merupakan template sederhana yang bisa digunakan untuk membuat [Bot](http://www.carik.id "Bot"). Saat ini disediakan contoh untuk platform :
+Code ini merupakan template sederhana yang bisa digunakan untuk membuat [Bot](http://www.carik.id "Bot"). Saat ini disediakan contoh untuk platform:
 - Facebook Messenger
 - Telegram.
 
@@ -37,7 +37,7 @@ Gunakan Lazarus, buka file "telegram.lpi" dan *compile* file tersebut.
 
 Akan terbentuk file binary di 'public_html/ai/telegram.bin'
 
-##### Telegram
+#### Telegram
 
 Buka file project dari Lazarus (atau code editor lainnya), akan dijumpai baris-baris code seperti berikut.
 
@@ -115,6 +115,10 @@ akan dijumpai seperti ini
 
 ```
 tuliskan token bot telegram atau facebook anda di dalam file config.json tersebut.
+
+### NLP
+
+Agar lebih menarik, anda bisa melengkapi Bot anda dengan [NLP](https://github.com/luridarmawan/SimpleAI/tree/development "NLP") *(Natural Language Processing)*. Banyak tersedia vendor NLP yang bisa digunakan. Tetapi jika anda mencari NLP simple, ringan dan cepat, anda bisa menggunakan NLP dari [SimpleAI](https://github.com/luridarmawan/SimpleAI/tree/development "SimpleAI").
 
       
 ### BOT Sequence Diagram

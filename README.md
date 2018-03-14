@@ -116,9 +116,7 @@ akan dijumpai seperti ini
 ```
 tuliskan token bot telegram atau facebook anda di dalam file config.json tersebut.
 
-
-[========]
-                    
+      
 ### BOT Sequence Diagram
                     
 ```seq
@@ -127,5 +125,5 @@ Note right of BOT: Your Process
 BOT-->Messenger: Send Reply to Messenger 
 
 ```
-
+![Sequence Diagram](docs/sequence-diagram.png "Sequence Diagram")
 

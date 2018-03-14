@@ -1,0 +1,37 @@
+{
+  "systems" : {
+    "sitename" : "BOT with FastPlaz",
+    "slogan" : "Super Fast BOT template with FastPlaz",
+    "baseurl" : "",
+    "admin_email" : "webmaster@coba.com",
+    "development" : true,
+    "debug" : true,
+    "module_default" : "main",
+    "language_default" : "id",
+    "theme_enable" : false,
+    "theme" : "default",
+    "cache" : "none",
+    "temp" : "ztemp",
+    "error_url" : "\/",
+    "session_timeout" : 0,
+    "error_redirect" : false
+  },
+  "database" : {
+    "default" : {
+      "driver" : "MySQL 5.7",
+      "hostname" : "localhost",
+      "port" : "",
+      "username" : "your_username",
+      "password" : "your_password",
+      "database_name" : "your_database",
+      "prefix" : "",
+      "library" : ""
+    }
+  },
+  "telegram": {
+    "token": "your_telegram_token"
+  },
+  "facebook": {
+    "token": "your_facebook_token"
+  }
+}

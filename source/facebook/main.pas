@@ -5,11 +5,13 @@ unit main;
 interface
 
 uses
+  facebookmessenger_integration,
   Classes, SysUtils, fpcgi, HTTPDefs, fastplaz_handler, database_lib;
 
 type
   TMainModule = class(TMyCustomWebModule)
   private
+    FACEBOOK: TFacebookMessengerIntegration;
     procedure BeforeRequestHandler(Sender: TObject; ARequest: TRequest);
   public
     constructor CreateNew(AOwner: TComponent; CreateMode: integer); override;
@@ -27,17 +29,19 @@ constructor TMainModule.CreateNew(AOwner: TComponent; CreateMode: integer);
 begin
   inherited CreateNew(AOwner, CreateMode);
   BeforeRequest := @BeforeRequestHandler;
+  FACEBOOK:= TFacebookMessengerIntegration.Create;
 end;
 
 destructor TMainModule.Destroy;
 begin
+  FACEBOOK.Free;
   inherited Destroy;
 end;
 
 // Init First
 procedure TMainModule.BeforeRequestHandler(Sender: TObject; ARequest: TRequest);
 begin
-  Response.ContentType := 'application/json';
+  //Response.ContentType := 'application/json';
 end;
 
 // GET Method Handler
@@ -48,27 +52,26 @@ begin
 end;
 
 // POST Method Handler
-// CURL example:
-//   curl -X POST -H "Authorization: Basic dW5hbWU6cGFzc3dvcmQ=" "yourtargeturl"
 procedure TMainModule.Post;
 var
-  json : TJSONUtil;
-  authstring : string;
+  messageText, replyText: string;
 begin
-  authstring := Header['Authorization'];
-  if authstring <> 'YourAuthKey' then
-  begin
-    //
-  end;
-  json := TJSONUtil.Create;
+  FACEBOOK.RequestContent := Request.Content;
+  FACEBOOK.Token := Config['facebook/token'];
+  messageText := FACEBOOK.Text;
 
-  json['code'] := Int16(0);
-  json['data'] := 'yourdatahere';
-  CustomHeader[ 'ThisIsCustomHeader'] := 'datacustomheader';
+  //-- your code here
 
-  //---
-  Response.Content := json.AsJSON;
-  json.Free;
+  replyText := 'ECHO: ' + messageText;
+
+
+
+
+  //-- send response
+  FACEBOOK.Send(FACEBOOK.UserID, replyText);
+  Response.Content := 'OK';
+  if Config['systems/debug'] then
+    Response.Content := FACEBOOK.ResultText;
 end;
 
 

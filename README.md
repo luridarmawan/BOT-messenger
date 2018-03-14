@@ -122,12 +122,15 @@ Agar lebih menarik, anda bisa melengkapi Bot anda dengan [NLP](https://github.co
 
       
 ### BOT Sequence Diagram
+
+Berikut ini sequence diagram sederhana dari bagaimana Bot bekerja, mulai dari user mengirim pesan dan menerima jawaban dari Bot.
                     
 ```seq
+User->Messenger: Send message
 Messenger->BOT: Send message to Bot 
 Note right of BOT: Your Process 
 BOT-->Messenger: Send Reply to Messenger 
-
+Messenger->User:Send Reply to User
 ```
 ![Sequence Diagram](docs/sequence-diagram.png "Sequence Diagram")
 
